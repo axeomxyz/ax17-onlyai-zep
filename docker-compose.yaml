@@ -1,25 +1,25 @@
 version: "3.7"
 services:
-  db:
-    image: ghcr.io/getzep/postgres:latest
-    container_name: zep-postgres
-    restart: on-failure
-    shm_size: "128mb"  # Increase this if vacuuming fails with a "no space left on device" error
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    build:
-      context: .
-      dockerfile: Dockerfile.postgres
-    networks:
-      - zep-network
-    volumes:
-      - zep-db:/var/lib/postgresql/data
-    healthcheck:
-      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+#  db:
+#    image: ghcr.io/getzep/postgres:latest
+#    container_name: zep-postgres
+#    restart: on-failure
+#    shm_size: "128mb"  # Increase this if vacuuming fails with a "no space left on device" error
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.postgres
+#    networks:
+#      - zep-network
+#    volumes:
+#      - zep-db:/var/lib/postgresql/data
+#    healthcheck:
+#      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 5
   nlp:
     image: ghcr.io/getzep/zep-nlp-server:latest
     container_name: zep-nlp
@@ -48,7 +48,7 @@ services:
     volumes:
       - ./config.yaml:/app/config.yaml
     environment:
-      - ZEP_STORE_POSTGRES_DSN=postgres://postgres:postgres@db:5432/postgres?sslmode=disable
+#      - ZEP_STORE_POSTGRES_DSN=postgres://postgres:postgres@db:5432/postgres?sslmode=disable
       - ZEP_NLP_SERVER_URL=http://nlp:5557
       - ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_SERVICE=openai
       - ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_DIMENSIONS=1536
