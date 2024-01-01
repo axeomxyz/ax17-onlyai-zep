@@ -25,29 +25,29 @@ memory:
 extractors:
   documents:
     embeddings:
-      enabled: true
-      chunk_size: 1000
-      dimensions: 384
-      service: "local"
-#      dimensions: 1536
-#      service: "openai"
+      enabled: false
+  #      chunk_size: 1000
+  #      dimensions: 384
+  #      service: "local"
+  #      dimensions: 1536
+  #      service: "openai"
   messages:
     summarizer:
       enabled: true
       entities:
-        enabled: true
+        enabled: false
       embeddings:
-        enabled: true
-        dimensions: 384
-        service: "local"
+        enabled: false
+    #        dimensions: 384
+    #        service: "local"
     entities:
-      enabled: true
+      enabled: false
     intent:
-      enabled: true
+      enabled: false
     embeddings:
-      enabled: true
-      dimensions: 384
-      service: "local"
+      enabled: false
+#      dimensions: 384
+#      service: "local"
 #      dimensions: 1536
 #      service: "openai"
 store:
