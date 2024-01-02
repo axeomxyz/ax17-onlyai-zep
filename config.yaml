@@ -37,17 +37,17 @@ extractors:
       entities:
         enabled: false
       embeddings:
-        enabled: false
-    #        dimensions: 384
-    #        service: "local"
+        enabled: true
+        dimensions: 384
+        service: "local"
     entities:
       enabled: false
     intent:
       enabled: false
     embeddings:
-      enabled: false
-#      dimensions: 384
-#      service: "local"
+      enabled: true
+      dimensions: 384
+      service: "local"
 #      dimensions: 1536
 #      service: "openai"
 store:
